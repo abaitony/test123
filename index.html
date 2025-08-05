@@ -58,7 +58,7 @@
   <script>
     function handleCredentialResponse(response) {
       const idToken = response.credential;
-      const appScriptUrl = "https://script.google.com/macros/s/AKfycbynE4gkdlCY6MMOXafyQhQZbb1-3u0yT4Ypn26pm-qNOzHy28OPFtswiVhBkLLfRfKg/exec";
+      const appScriptUrl = "https://script.google.com/macros/s/AKfycbxodWM2zq0l5vrOzRHcZT4axMbIyjScRonZ7G94k3tcsGp3brSWSGTiBoeRL16xlYMk/exec";
       window.location.href = `${appScriptUrl}?credential=${idToken}`;
     }
   </script>
