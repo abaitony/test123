@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <meta name="google-signin-client_id" content="58254963801-5m2lfj8ol58g349g45kn96461qrnf3lv.apps.googleusercontent.com">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #74ebd5, #9face6);
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .login-card {
+      background: #ffffffcc;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 24px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 320px;
+    }
+    h2 {
+      margin-bottom: 1rem;
+      color: #00796b;
+    }
+    p {
+      color: #555;
+      margin-bottom: 1rem;
+    }
+    .g_id_signin {
+      display: flex;
+      justify-content: center; /* center horizontally */
+      margin-top: 1.5rem;
+      transform: scale(1.1);   /* slightly bigger */
+    }
+  </style>
+</head>
+<body>
+  <div class="login-card">
+    <h2>Welcome</h2>
+    <p>Please sign in with your Google account to continue</p>
+    <!-- One Tap loader -->
+    <div id="g_id_onload"
+         data-client_id="58254963801-5m2lfj8ol58g349g45kn96461qrnf3lv.apps.googleusercontent.com"
+         data-context="signin"
+         data-callback="handleCredentialResponse"
+         data-auto_select="false"
+         data-itp_support="true">
+    </div>
+    <!-- Centered sign-in button -->
+    <div class="g_id_signin" data-type="standard"></div>
+  </div>
+
+  <script>
+    function handleCredentialResponse(response) {
+      const idToken = response.credential;
+      const appScriptUrl = "https://script.google.com/macros/s/AKfycbzRYwB-Ngb11km66Vb9SZJzaNCHqkbmqp3HNn95v2Q/dev";
+      window.location.href = `${appScriptUrl}?credential=${idToken}`;
+    }
+  </script>
+</body>
+</html>
